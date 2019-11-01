@@ -1,0 +1,46 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem[Carroll e LONG 1989]{CL89}
+\abntrefinfo{Carroll e LONG}{CARROLL; LONG}{1989}
+{CARROLL, J.; LONG, D. \textbf{Theory of finite automata with an introduction
+  to formal languages}. [S.l.]: Prentice Hall International Editions, 1989.}
+
+\bibitem[CASSANDRAS e LAFORTUNE 1999]{CASS99}
+\abntrefinfo{CASSANDRAS e LAFORTUNE}{CASSANDRAS; LAFORTUNE}{1999}
+{CASSANDRAS, C.; LAFORTUNE, S. \textbf{Introduction to Discrete Event Systems}.
+  [S.l.]: Kluwer Academic Publishers, 1999.}
+
+\bibitem[Curzel 2008]{JC08}
+\abntrefinfo{Curzel}{CURZEL}{2008}
+{CURZEL, J.~L.
+\textbf{Síntese e Implementação de Controle Supervisório em uma Célula
+  Flexível de Manufatura Didática}.
+Disserta\c{c}\~{a}o (Mestrado) --- UDESC, Joinville - SC, 2008.}
+
+\bibitem[Lopes 2012]{lopes2012dissertacao}
+\abntrefinfo{Lopes}{LOPES}{2012}
+{LOPES, Y.~K.
+\textbf{Integração dos Níveis MES, SCADA e Controle da Planta de Manufatura
+  com Base na Teoria de Linguagens e Autômatos}.
+163~f. Disserta\c{c}\~{a}o (Mestrado em Engenharia Elétrica) --- Universidade
+  do Estado de Santa Catarina, Joinville, SC, 2012.}
+
+\bibitem[QUEIROZ 2004]{MQ04}
+\abntrefinfo{QUEIROZ}{QUEIROZ}{2004}
+{QUEIROZ, M.~H. de.
+\textbf{Controle Supervisório Modular e Multitarefa de Sistemas Compostos}.
+Tese (Doutorado) --- Universidade Federal de Santa Catarina, Florianópolis,
+  Maio 2004.}
+
+\bibitem[RAMADGE e WONHAM 1989]{RW89}
+\abntrefinfo{RAMADGE e WONHAM}{RAMADGE; WONHAM}{1989}
+{RAMADGE, P.~J.; WONHAM, W.~M. The control of discrete events system. In:
+  \textbf{Proceedings of the IEEE}. [s.n.], 1989. v.~77, n.~1, p. 81--98.
+  Dispon{\'\i}vel em: \url{https://ieeexplore.ieee.org/document/21072/}.}
+
+\end{thebibliography}
