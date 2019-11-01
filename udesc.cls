@@ -11,7 +11,8 @@
 
 \PassOptionsToClass{twoside}{report}
 
-%\PassOptionsToPackage{breaklinks}{hyperref}
+%\PassOptionsToPackage{hidelinks}{hyperref}
+%\RequirePackage[hidelinks]{hyperref}
 
 %\PassOptionsToClass{portuguese}{report}
 
@@ -82,7 +83,7 @@
   {}%                  failure
 \makeatother
 
-
+\newcommand{\numberspacing}{1.4cm}
 
 \renewcommand{\contentsname}{Sum\'{a}rio}
 \tocloftpagestyle{empty}
@@ -93,24 +94,24 @@
 \renewcommand{\cftbeforetoctitleskip}{0cm}
 \renewcommand{\cftaftertoctitleskip}{0cm}
 
-\cftsetindents{chapter}{0in}{0.5in}
+\cftsetindents{chapter}{0in}{\numberspacing}
 \renewcommand{\cftchapdotsep}{\cftdotsep}
 \renewcommand\cftchapfont{\bfseries\MakeUppercase}
 %\renewcommand{\cftchappagefont}{}
 
 
 
-\cftsetindents{section}{0in}{0.5in}
+\cftsetindents{section}{0in}{\numberspacing}
 \renewcommand{\cftsecpagefont}{}
 \renewcommand{\cftsecfont}{\MakeUppercase}
 
-\cftsetindents{subsection}{0in}{0.5in}
+\cftsetindents{subsection}{0in}{\numberspacing}
 \renewcommand{\cftsubsecpagefont}{}
 \renewcommand{\cftsubsecfont}{\bfseries}
 
-\cftsetindents{subsubsection}{0in}{0.5in}
+\cftsetindents{subsubsection}{0in}{\numberspacing}
 
-\cftsetindents{paragraph}{0in}{0.5in}
+\cftsetindents{paragraph}{0in}{\numberspacing}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -118,7 +119,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{graphicx}
 \RequirePackage{caption}
-%\RequirePackage{chngcntr}
+\RequirePackage{chngcntr}
 
 \counterwithout{figure}{chapter}
 
@@ -187,26 +188,52 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LISTA DE ACRONIMOS %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[acronym,symbols,nopostdot,toc,shortcuts]{glossaries}
+\RequirePackage{tabu}
+
+\newglossarystyle{udesc_acronym}{%
+\glossarystyle{super}%
+\renewenvironment{theglossary}{%
+\begin{longtabu} to \textwidth {@{}rX@{}}}{%
+\end{longtabu}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LISTA DE SIMBOLOS %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newglossarystyle{udesc_symbol}{%
+\glossarystyle{super}%
+\renewenvironment{theglossary}{%
+\begin{longtabu} to \textwidth {@{}lX@{}}}{%
+\end{longtabu}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LISTA DE DEFINIÇÕES %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{tocloft}
-\newcommand{\nomelistadefinicoes}{Lista de Definições}
+\RequirePackage{amssymb}
+\newcommand{\nomelistadefinicoes}{\hfill Lista de Definições\hfill}
 
-\newlistof{defcaption}{lodef}{\nomelistadefinicoes}
+\newlistof{definicao}{lodef}{\nomelistadefinicoes}
 
-\newcommand{\defcaption}[2]{%
-\refstepcounter{defcaption}%
-%\par\noindent\textbf{defcaption \thedefcaption. #1}
-{\vspace{\baselineskip}\noindent\let\par\relax\textbf{Definição \thedefcaption \ }\textit{(#1).} %
-#2\vspace{\baselineskip}}%
-\addcontentsline{lodef}{defcaption}%
-%{\protect\numberline{\thechapter.\thedefcaption}#1}\par}%
-{\protect\numberline{\thedefcaption}#1}\par}
+\newcommand{\definicao}[2]{%
+\refstepcounter{definicao}%
+%\par\noindent\textbf{definicao \thedefinicao. #1}
+{\vspace{\baselineskip}\noindent\let\par\relax\textbf{Definição \thedefinicao \ }\textit{(#1).} %
+#2  \strut\hfill $\blacklozenge$ \vspace{\baselineskip}}%
+\addcontentsline{lodef}{definicao}%
+%{\protect\numberline{\thechapter.\thedefinicao}#1}\par}%
+{\protect\numberline{\thedefinicao}#1}\par}
 
-\renewcommand{\cftdefcaptionpresnum}{\textsc{Definição }}
-\renewcommand{\cftdefcaptionaftersnum}{ \hfil -- }
-\setlength{\cftdefcaptionnumwidth}{7.6em}
+\renewcommand{\cftdefinicaopresnum}{\textsc{Definição }}
+\renewcommand{\cftdefinicaoaftersnum}{ \hfil -- }
+\setlength{\cftdefinicaonumwidth}{7.6em}
 \renewcommand{\cftlodeftitlefont}{\hfil\bfseries\MakeUppercase}
 \renewcommand{\cftafterlodeftitle}{\hfil}
 \renewcommand{\cftbeforelodeftitleskip}{0cm}
@@ -217,22 +244,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\newcommand{\nomelistaproposicoes}{Lista de Proposições}
+\newcommand{\nomelistaproposicoes}{\hfill Lista de Proposições\hfill}
 
-\newlistof{propcaption}{loprop}{\nomelistaproposicoes}
+\newlistof{proposicao}{loprop}{\nomelistaproposicoes}
 
-\newcommand{\propcaption}[2]{%
-\refstepcounter{propcaption}%
-%\par\noindent\textbf{propcaption \thepropcaption. #1}%
-{\vspace{\baselineskip}\noindent\let\par\relax\textbf{propcaption \thepropcaption \ } \textit{(#1).} %
+\newcommand{\proposicao}[2]{%
+\refstepcounter{proposicao}%
+%\par\noindent\textbf{proposicao \theproposicao. #1}%
+{\vspace{\baselineskip}\noindent\let\par\relax\textbf{Proposição \theproposicao \ }\textit{(#1).} %
 #2\vspace{\baselineskip}}%
-\addcontentsline{loprop}{propcaption}%
-{\protect\numberline{\thechapter.\thepropcaption}#1}\par}%
-%%{\protect\numberline{\thedefcaption}#1}\par}
+\addcontentsline{loprop}{proposicao}%
+%{\protect\numberline{\thechapter.\theproposicao}#1}\par}%
+{\protect\numberline{\theproposicao}#1}\par}
 
-%%\renewcommand{\cftdefcaptionpresnum}{\textsc{Definição }}
-%%\renewcommand{\cftdefcaptionaftersnum}{ \hfil -- }
-\setlength{\cftpropcaptionnumwidth}{1.8em}
+\renewcommand{\cftproposicaopresnum}{\textsc{Proposição }}
+\renewcommand{\cftproposicaoaftersnum}{ \hfil -- }
+\setlength{\cftproposicaonumwidth}{8.2em}
 \renewcommand{\cftloproptitlefont}{\hfil\bfseries\MakeUppercase}
 \renewcommand{\cftafterloproptitle}{\hfil}
 \renewcommand{\cftbeforeloproptitleskip}{0cm}
@@ -243,22 +270,22 @@
 % LISTA DE TEOREMAS %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\nomelistateoremas}{Lista de Teoremas}
+\newcommand{\nomelistateoremas}{\hfill Lista de Teoremas\hfill}
 
-\newlistof{teocaption}{loteo}{\nomelistateoremas}
+\newlistof{teorema}{loteo}{\nomelistateoremas}
 
-\newcommand{\teocaption}[2]{%
-\refstepcounter{teocaption}%
-%\par\noindent\textbf{teocaption \theteocaption. #1}%
-{\vspace{\baselineskip}\noindent\let\par\relax\textbf{teocaption \theteocaption \ } \textit{(#1).} %
-\textit{#2}\vspace{\baselineskip}}%
-\addcontentsline{loteo}{teocaption}%
-{\protect\numberline{\thechapter.\theteocaption}#1}\par}%
-%%{\protect\numberline{\thedefcaption}#1}\par}
+\newcommand{\teorema}[2]{%
+\refstepcounter{teorema}%
+%\par\noindent\textbf{teorema \theteorema. #1}%
+{\vspace{\baselineskip}\noindent\let\par\relax\textbf{Teorema \theteorema \ }\textit{(#1).} %
+#2\vspace{\baselineskip}}%
+\addcontentsline{loteo}{teorema}%
+%{\protect\numberline{\thechapter.\theteorema}#1}\par}%
+{\protect\numberline{\theteorema}#1}\par}
 
-%%\renewcommand{\cftdefcaptionpresnum}{\textsc{Definição }}
-%%\renewcommand{\cftdefcaptionaftersnum}{ \hfil -- }
-\setlength{\cftteocaptionnumwidth}{1.8em}
+\renewcommand{\cftteoremapresnum}{\textsc{Teorema }}
+\renewcommand{\cftteoremaaftersnum}{ \hfil -- }
+\setlength{\cftteoremanumwidth}{7.6em}
 \renewcommand{\cftloteotitlefont}{\hfil\bfseries\MakeUppercase}
 \renewcommand{\cftafterloteotitle}{\hfil}
 \renewcommand{\cftbeforeloteotitleskip}{0cm}
@@ -270,7 +297,14 @@
 % Lista de algoritmos
 %%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\listalgoritmoname}{Lista de Algoritmos}
+\RequirePackage{algorithm}
+
+\makeatletter
+\renewcommand{\ALG@name}{Algoritmo}
+\makeatother
+
+\renewcommand{\listalgorithmname}{Lista de Algoritmos}
+
 
 \makeatletter
 \begingroup
@@ -278,11 +312,10 @@
   \let\setcounter\@gobbletwo
   \globaldefs\@ne
   \let\c@loadepth\@ne
-  \newlistof{algoritmos}{loa}{\listalgoritmoname}
+  \newlistof{algoritmos}{loa}{\listalgorithmname}
 \endgroup
 \let\l@algorithm\l@algoritmos
 \makeatother
-
 
 \renewcommand{\cftalgoritmospresnum}{\textsc{Algoritmo }}
 \renewcommand{\cftalgoritmosaftersnum}{ \hfil -- }
@@ -626,7 +659,7 @@
 
 \if@restonecol\twocolumn \else \newpage \fi
 
-\clearpage
+\cleardoublepage
 \restoregeometry
 
 }% end of \capa
@@ -892,7 +925,7 @@
       {\localformat\localdata,} {\dataformat\datadata.}
 \end{center}
 \pagebreak
-\clearpage
+\cleardoublepage
 \setlength\parindent{1.25cm}
 }
 
@@ -1012,6 +1045,22 @@
 \clearpage
 }
 \makeatother
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Citação direta com mais que 3 linhas %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\citacaodireta}[1]{\noindent \hspace*{4cm}\begin{minipage}{\textwidth - 4 cm} \small  {#1}%
+\end{minipage}
+}
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
