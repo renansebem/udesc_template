@@ -1,42 +1,53 @@
 \pagestyle{vazio}
+
 \cleardoublepage
 \listoffigures
-\clearpage
+
 
 \cleardoublepage
 \listoftables
-\clearpage
+
+
+
+\cleardoublepage
+\listofdefinicao
+
+
+
+%\cleardoublepage
+%\listofteorema
+%
+%
+%
+%\cleardoublepage
+%\listofproposicao
+%
+%
+%\cleardoublepage
+%\listofalgoritmos
+
 
 \cleardoublepage
 
-\cleardoublepage
-\listofdefcaption
-\clearpage
-\cleardoublepage
-
-
-\printnoidxglossary[type=acronym,style=super,nonumberlist,title=Lista de Abreviaturas,toctitle=Lista de Abreviaturas]% sem n da página
+\printnoidxglossary[type=acronym,style=udesc_acronym,nonumberlist,title=Lista de Abreviaturas,toctitle=Lista de Abreviaturas]% sem n da página
 %\printnoidxglossary[type=acronym,style=super]% com n da página
 
+\thispagestyle{vazio}
 
 %\printacronyms[include-classes=abbrev,heading = chapter*, name=Lista de Abreviaturas e Siglas]
-\thispagestyle{empty}
 
-\clearpage
+
 
 \cleardoublepage
-\pagestyle{vazio}
-\printnoidxglossary[type=symbols,style=super,nonumberlist,title=Lista de Símbolos, toctitle=Lista de Símbolos]% sem n da página
+
+\printnoidxglossary[type=symbols,style=udesc_symbol,nonumberlist,title=Lista de Símbolos, toctitle=Lista de Símbolos]% sem n da página
 %\printacronyms[include-classes=symbol,heading = chapter*, name= Lista de Símbolos]
-\thispagestyle{empty}
+\thispagestyle{vazio}
 
-\clearpage
+
 
 \cleardoublepage
-
 \tableofcontents
-
-\clearpage
 
 \cleardoublepage
 
